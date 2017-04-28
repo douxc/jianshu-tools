@@ -1,0 +1,74 @@
+/*简书侧拉菜单的容器*/
+.jianshu-tools-sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    background-color: #fff;
+    z-index: 99999;
+    border: 1px solid #f7f7f7;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.25);
+    transform: translateX(-100%);
+    padding: 5px;
+}
+
+/*默认状态开关*/
+.jianshu-tools-sidebar__switch {
+    position: absolute;
+    top: 5px;
+    right: -5px;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #bebebe;
+    background-color: #f7f7f7;
+    border-radius: 2px;
+    cursor: pointer;
+    transform: translateX(100%);
+}
+
+/*打开状态的开关*/
+.open .jianshu-tools-sidebar__switch {
+    top: 5px;
+    right: 5px;
+    transform: translateX(0%);
+}
+
+/*开关的icon*/
+.jianshu-tools-sidebar__switch:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.5rem;
+    margin-left: -0.55rem;
+    content: '';
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-top: 2px solid #a1a1a1;
+    border-right: 2px solid #a1a1a1;
+    transform: rotate(45deg);
+}
+
+/*菜单*/
+.jianshu-tools-sidebar__content {
+    width: 180px;
+    height: 100%;
+}
+
+/*菜单左侧移出动画*/
+.jianshu-tools-sidebar.open {
+    animation: slideInLeft 200ms linear forwards;
+}
+
+/*菜单打开时，icon的方向调整*/
+.jianshu-tools-sidebar.open .jianshu-tools-sidebar__switch:after {
+    margin-left: -0.25rem;
+    transform: rotate(-135deg);
+}
+
+@keyframes slideInLeft {
+    to {
+        transform: translateX(0%);
+    }
+}
